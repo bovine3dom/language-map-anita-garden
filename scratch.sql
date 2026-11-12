@@ -20,7 +20,7 @@ dominant AS
 cell_languages AS
 (
     SELECT
-    geoToH3(lon, lat, 5) AS h3,
+    geoToH3(lon, lat, 4) AS h3,
     country,
     language,
     sum(people) AS speakers
