@@ -43,7 +43,8 @@ FROM
 
     arrayStringConcat(
         arrayMap(
-            x -> concat(x.2, ': ', toString(x.1)),
+            x -> replaceRegexpOne(x.2, '^.*\\.', ''),
+            -- x -> concat(replaceRegexpOne(x.2, '^.*\\.', ''), ': ', toString(x.1)), -- inc speaker count
             arrayReverseSort(
                 x -> x.1,
                 groupArray((d.speakers, d.language))
